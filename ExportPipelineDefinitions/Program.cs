@@ -317,9 +317,11 @@ namespace ExportPipelineDefinitions
 
                         string directory = outputPath + project + Path.DirectorySeparatorChar + definitionType + "s" + Path.DirectorySeparatorChar + buildDef.path;
                         directory = directory.Replace("/\\", "/");
+                        Console.WriteLine("Directory: " + directory);
                         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
                         {
                             directory = directory.Replace("\\", "/");
+                            Console.WriteLine("Running on Linux, Updated directory: " + directory);
                         }
                         System.IO.Directory.CreateDirectory(directory);
                         string buildName = buildDef.name.Replace("?", "").Replace(":", "");
